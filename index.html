@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Photo Studio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: white;
+      padding-left: 80px;
+      box-sizing: border-box;
+    }
+
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 70px;
+      height: 100vh;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 20px;
+      z-index: 999;
+    }
+
+    .nav-icon {
+      margin: 60px 0;
+      font-size: 24px;
+      color: white;
+      text-shadow: 0 0 8px #0ff;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+    }
+    .nav-icon:hover {
+      transform: scale(1.2);
+      text-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff;
+    }
+
+    .hero-section {
+      min-height: 100dvh;
+      background: url('/Assets/image.png') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .title-container {
+      max-width: 90vw;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .floating-title {
+      animation: floatTitle 2.5s ease-in-out infinite;
+      text-shadow: 0 0 10px #0ff;
+      color: #0ff;
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    .dynamic-typing {
+      color: #fff;
+      font-size: 1.3em;
+      font-family: 'Courier New', monospace;
+      border-right: 2px solid #0ff;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      max-width: 90vw;
+      word-break: break-word;
+      text-align: center;
+      margin-top: 10px;
+      animation: typing 4s steps(30, end) forwards, blink 0.7s step-end infinite;
+    }
+
+    .cta-button {
+      background: #0ff;
+      color: #000;
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-top: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 10px #0ff;
+      transition: 0.3s ease;
+    }
+    .cta-button:hover {
+      background: #00f0f0;
+      box-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
+    }
+
+    .features, .gallery-preview {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 50px 20px;
+    }
+
+    .feature-box, .gallery-preview img {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #0ff;
+      text-align: center;
+    }
+
+    .feature-box i {
+      font-size: 30px;
+      color: #0ff;
+      margin-bottom: 10px;
+    }
+
+    .gallery-preview img {
+      width: 250px;
+      height: 180px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-preview img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #0ff;
+    }
+
+    @keyframes floatTitle {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    @media (max-width: 768px) {
+      body { padding-left: 60px; }
+      #navbar { width: 55px; }
+      .nav-icon { font-size: 20px; margin: 50px 0; }
+      .hero-section { padding: 0 15px; background-position: center; background-size: cover; }
+      .floating-title { font-size: 1.8em; }
+      .dynamic-typing { font-size: 1em; }
+      .features, .gallery-preview { flex-direction: column; align-items: center; }
+    }
+    /* For all boxes you want to animate upward on hover */
+.glow-box:hover,
+.feature-box:hover,
+.gallery-preview img:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 0 20px #0ff, 0 0 30px #0ff;
+}
+.glow-box,
+.feature-box,
+.gallery-preview img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+  </style>
+</head>
+<body>
+  <div id="navbar">
+    <a href="index.html" class="nav-icon"><i class="fas fa-home"></i></a>
+    <a href="about.html" class="nav-icon"><i class="fas fa-user"></i></a>
+    <a href="services.html" class="nav-icon"><i class="fas fa-concierge-bell"></i></a>
+    <a href="contact.html" class="nav-icon"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <div class="hero-section">
+    <div class="title-container">
+      <h1 class="floating-title">Welcome to Karizma Lab</h1>
+      <div id="typing-text" class="dynamic-typing"></div>
+      <a href="services.html" class="cta-button">Explore Our Services</a>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="feature-box" data-aos="zoom-in">
+      <i class="fas fa-camera-retro"></i>
+      <h3>High Quality Prints</h3>
+      <p>Crystal clear printing using Canon tech</p>
+    </div>
+    <div class="feature-box" data-aos="zoom-in">
+      <i class="fas fa-mug-hot"></i>
+      <h3>Custom Gifts</h3>
+      <p>Print on cups, frames, and more</p>
+    </div>
+    <div class="feature-box" data-aos="zoom-in">
+      <i class="fas fa-image"></i>
+      <h3>Beautiful Frames</h3>
+      <p>Decorative and LED frames available</p>
+    </div>
+  </div>
+
+  <div class="gallery-preview">
+    <img src="https://via.placeholder.com/250x180?text=Sample+1" alt="Sample 1" data-aos="fade-up">
+    <img src="https://via.placeholder.com/250x180?text=Sample+2" alt="Sample 2" data-aos="fade-up">
+    <img src="https://via.placeholder.com/250x180?text=Sample+3" alt="Sample 3" data-aos="fade-up">
+  </div>
+
+  <script>AOS.init();</script>
+  <script src="/Javascript/index.js"></script>
+</body>
+</html>
