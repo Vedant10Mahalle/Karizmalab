@@ -19,12 +19,20 @@
       padding: 10px 20px;
     }
 
-    .navbar .nav-link {
-      color: white;
-      font-size: 20px;
-      margin-right: 20px;
-      text-shadow: 0 0 10px #0ff;
-    }
+   .navbar .nav-link i,
+.nav-icon i {
+  font-size: 22px;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar .nav-link i:hover,
+.nav-icon i:hover {
+  transform: scale(1.2);
+  text-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff;
+}
+
 
     .navbar .nav-link:hover {
       text-shadow: 0 0 15px #0ff, 0 0 25px #0ff;
@@ -181,6 +189,11 @@
         padding: 10px 20px;
       }
     }
+    .navbar-brand img {
+  max-height: 50px;
+  object-fit: contain;
+}
+
   </style>
 </head>
 <body>
@@ -188,7 +201,10 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow">
   <div class="container-fluid">
-    <a class="navbar-brand text-info fw-bold" href="#">Karizma Lab</a>
+   <a class="navbar-brand" href="#">
+  <img src="logo.png" alt="Karizma Lab Logo" height="40">
+</a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarIcons">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -198,10 +214,10 @@
           <a class="nav-link" href="/Html/index.html"><i class="fas fa-home"></i></a>
         </li>
         <li class="nav-item mx-2">
-          <a class="nav-link" href="/Html/about.html"><i class="fas fa-user"></i></a>
+          <a class="nav-link" href="/Html/guide.html"><<i class="fas fa-ruler-combined"></i"></i></a>
         </li>
         <li class="nav-item mx-2">
-          <a class="nav-link" href="/Html/services.html"><i class="fas fa-concierge-bell"></i></a>
+  <a class="nav-link" href="/Html/services.html"><i class="fas fa-tools"></i></a>
         </li>
         <li class="nav-item mx-2">
           <a class="nav-link" href="/Html/contact.html"><i class="fas fa-envelope"></i></a>
